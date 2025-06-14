@@ -7,6 +7,7 @@ on:
     paths:
       - 'PRIVACY_POLICY.md'
       - '.github/workflows/deploy-privacy-policy.yml'
+      - 'template.html'
 
 jobs:
   deploy:
@@ -19,12 +20,14 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Install dependencies
-        run: npm install -g markdown-to-html
-        
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+          
       - name: Convert Markdown to HTML
         run: |
-          markdown-to-html PRIVACY_POLICY.md > index.html
+          pandoc PRIVACY_POLICY.md -o index.html --standalone --template=template.html
           
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
