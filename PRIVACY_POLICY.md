@@ -58,8 +58,7 @@ We may update this privacy policy from time to time. We will notify you of any c
 ## Contact Us
 
 If you have any questions about this privacy policy, please contact us at:
-- Email: [Your Contact Email]
-- GitHub: [Your GitHub Profile]
+- Email: [demandappscorp@gmail.com]
 
 ## Consent
 
