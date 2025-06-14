@@ -1,0 +1,106 @@
+<svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="neon-glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2" />
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+      </feMerge>
+      <feFlood flood-color="#00ffff" result="glow-color" />
+      <feComposite in="glow-color" in2="blur-merged" operator="in" result="soft-glow" />
+      <feMerge>
+        <feMergeNode in="soft-glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="neon-glow-pink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2" />
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+      </feMerge>
+      <feFlood flood-color="#ff00ff" result="glow-color" />
+      <feComposite in="glow-color" in2="blur-merged" operator="in" result="soft-glow" />
+      <feMerge>
+        <feMergeNode in="soft-glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="neon-glow-white" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2" />
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+      </feMerge>
+      <feFlood flood-color="#ffffff" result="glow-color" />
+      <feComposite in="glow-color" in2="blur-merged" operator="in" result="soft-glow" />
+      <feMerge>
+        <feMergeNode in="soft-glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="100%" height="100%" fill="#121212" />
+
+  <!-- Title at top -->
+  <text x="200" y="80" 
+        font-family="Arial Black, Impact, sans-serif" 
+        font-size="38" 
+        font-weight="900" 
+        fill="#00ffff" 
+        text-anchor="middle" 
+        dominant-baseline="central"
+        letter-spacing="2px"
+        filter="url(#neon-glow-blue)">TIC TAC TOE</text>
+
+  <!-- Icon recreation in the middle -->
+  <g transform="translate(200, 300)">
+    <!-- Grid lines -->
+    <g stroke-width="8" stroke="#fff" filter="url(#neon-glow-white)">
+      <line x1="-60" y1="-20" x2="-60" y2="20" stroke-linecap="round"/>
+      <line x1="-20" y1="-20" x2="-20" y2="20" stroke-linecap="round"/>
+      <line x1="20" y1="-20" x2="20" y2="20" stroke-linecap="round"/>
+      <line x1="60" y1="-20" x2="60" y2="20" stroke-linecap="round"/>
+      
+      <line x1="-80" y1="-60" x2="80" y2="-60" stroke-linecap="round"/>
+      <line x1="-80" y1="-20" x2="80" y2="-20" stroke-linecap="round"/>
+      <line x1="-80" y1="20" x2="80" y2="20" stroke-linecap="round"/>
+      <line x1="-80" y1="60" x2="80" y2="60" stroke-linecap="round"/>
+    </g>
+
+    <!-- X symbol (top-left) -->
+    <g transform="translate(-70, -50)" stroke-width="12" stroke="#00ffff" stroke-linecap="round" filter="url(#neon-glow-blue)">
+      <line x1="-15" y1="-15" x2="15" y2="15" />
+      <line x1="15" y1="-15" x2="-15" y2="15" />
+    </g>
+
+    <!-- O symbol (bottom-right) -->
+    <g transform="translate(50, 40)" stroke-width="12" stroke="#ff00ff" stroke-linecap="round" filter="url(#neon-glow-pink)">
+       <circle cx="0" cy="0" r="18" fill="none"/>
+    </g>
+
+    <!-- Another X (center) -->
+    <g transform="translate(-10, -10)" stroke-width="12" stroke="#00ffff" stroke-linecap="round" filter="url(#neon-glow-blue)">
+      <line x1="-15" y1="-15" x2="15" y2="15" />
+      <line x1="15" y1="-15" x2="-15" y2="15" />
+    </g>
+  </g>
+
+  <!-- Subtitle at bottom -->
+  <text x="200" y="520" 
+        font-family="Arial Black, Impact, sans-serif" 
+        font-size="52" 
+        font-weight="900" 
+        fill="#ff00ff" 
+        text-anchor="middle" 
+        dominant-baseline="central"
+        letter-spacing="3px"
+        filter="url(#neon-glow-pink)">PARTY</text>
+</svg> 

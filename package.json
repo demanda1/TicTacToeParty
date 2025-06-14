@@ -4,15 +4,24 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
+    "@react-native-picker/picker": "^2.6.1",
+    "babel-preset-expo": "~13.0.0",
+    "canvas": "^3.1.0",
     "expo": "~53.0.11",
+    "expo-av": "~15.1.6",
+    "expo-font": "^13.3.1",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-native": "0.79.3"
+    "react-native": "0.79.3",
+    "react-native-confetti-cannon": "^1.5.2",
+    "react-native-reanimated": "^3.17.4",
+    "sharp": "^0.34.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

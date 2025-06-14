@@ -1,0 +1,72 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="neon-glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur3" />
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur3" />
+      </feMerge>
+      <feFlood flood-color="#00ffff" result="glow-color" />
+      <feComposite in="glow-color" in2="blur-merged" operator="in" result="soft-glow" />
+      <feMerge>
+        <feMergeNode in="soft-glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neon-glow-pink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur3" />
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur3" />
+      </feMerge>
+      <feFlood flood-color="#ff00ff" result="glow-color" />
+      <feComposite in="glow-color" in2="blur-merged" operator="in" result="soft-glow" />
+      <feMerge>
+        <feMergeNode in="soft-glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+     <filter id="neon-glow-grid" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2" />
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+      </feMerge>
+      <feFlood flood-color="#ffffff" result="glow-color" />
+      <feComposite in="glow-color" in2="blur-merged" operator="in" result="soft-glow" />
+      <feMerge>
+        <feMergeNode in="soft-glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#121212" />
+
+  <!-- Grid -->
+  <g stroke-width="12" stroke="#fff" filter="url(#neon-glow-grid)" transform="translate(56, 56) scale(1.5)">
+    <line x1="100" y1="20" x2="100" y2="260" stroke-linecap="round"/>
+    <line x1="180" y1="20" x2="180" y2="260" stroke-linecap="round"/>
+    <line x1="20" y1="100" x2="260" y2="100" stroke-linecap="round"/>
+    <line x1="20" y1="180" x2="260" y2="180" stroke-linecap="round"/>
+  </g>
+
+  <!-- X -->
+  <g stroke-width="20" stroke="#00ffff" stroke-linecap="round" filter="url(#neon-glow-blue)" transform="translate(36, 36) scale(1.2)">
+    <line x1="50" y1="50" x2="120" y2="120" />
+    <line x1="120" y1="50" x2="50" y2="120" />
+  </g>
+
+  <!-- O -->
+  <g stroke-width="20" stroke="#ff00ff" stroke-linecap="round" filter="url(#neon-glow-pink)" transform="translate(200, 200) scale(1.4)">
+     <circle cx="80" cy="80" r="45" fill="none"/>
+  </g>
+
+</svg> 
