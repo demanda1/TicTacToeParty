@@ -388,6 +388,7 @@ export default function App() {
   const [truthOrDareChoice, setTruthOrDareChoice] = useState<string>('');
   const [isComputerGame, setIsComputerGame] = useState(false);
   const [isComputerTurn, setIsComputerTurn] = useState(false);
+  const [isComputerMoving, setIsComputerMoving] = useState(false);
   
   // Game mode selection components
   const [selectedSize, setSelectedSize] = useState<number>(3);
@@ -496,6 +497,7 @@ export default function App() {
     setWinner(null);
     setIsComputerGame(isComputerMode());
     setIsComputerTurn(false);
+    setIsComputerMoving(false);
   };
 
   useEffect(() => {
@@ -556,7 +558,7 @@ export default function App() {
     if (isComputerTurn && !winner) {
       makeComputerMove();
     }
-  }, [isComputerTurn, board, winner]);
+  }, [isComputerTurn, winner]);
 
   useEffect(() => {
     async function initAudio() {
@@ -1273,8 +1275,9 @@ export default function App() {
   };
 
   const makeComputerMove = () => {
-    if (!isComputerGame || !isComputerTurn || winner) return;
+    if (!isComputerGame || !isComputerTurn || winner || isComputerMoving) return;
     
+    setIsComputerMoving(true);
     setTimeout(() => {
       const isHard = currentGameMode === 'singlePlayerHard' || 
                      currentGameMode === 'fourByFourSinglePlayerHard' ||
@@ -1284,6 +1287,7 @@ export default function App() {
       if (computerMoveIndex !== -1) {
         handlePress(computerMoveIndex, true);
       }
+      setIsComputerMoving(false);
     }, 800); // Slightly longer delay for more natural feel
   };
 
